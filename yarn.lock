@@ -9246,9 +9246,9 @@ schema-utils@^3.0.0:
     minilog "^3.0.1"
     startaudiocontext "1.2.1"
 
-"scratch-blocks@git+https://github.com/TurboWarp/scratch-blocks.git#develop-builds":
+"scratch-blocks@git+https://github.com/SimonShiki/umi-blocks.git#master":
   version "0.1.0"
-  resolved "git+https://github.com/TurboWarp/scratch-blocks.git#ead5cfb287a53c31fd9db38acba89c53175de364"
+  resolved "git+https://github.com/SimonShiki/umi-blocks.git#bdb14adf1c84cb40c9246deccfad6e5492f1d112"
   dependencies:
     exports-loader "0.7.0"
     google-closure-library "20190301.0.0"

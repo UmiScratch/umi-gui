@@ -112,6 +112,18 @@ const CustomProcedures = props => (
                         id="gui.customProcedures.runWithoutScreenRefresh"
                     />
                 </label>
+                <label>
+                    <input
+                        checked={props.return}
+                        type="checkbox"
+                        onChange={props.onToggleReturn}
+                    />
+                    <FormattedMessage
+                        defaultMessage="Custom reporter"
+                        description="Label for checkbox to custom reporter"
+                        id="gui.customProcedures.customReporter"
+                    />
+                </label>
             </div>
             <Box className={styles.buttonRow}>
                 <button
@@ -148,7 +160,9 @@ CustomProcedures.propTypes = {
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
-    warp: PropTypes.bool.isRequired
+    onToggleReturn: PropTypes.func.isRequired,
+    warp: PropTypes.bool.isRequired,
+    return: PropTypes.bool.isRequired
 };
 
 export default injectIntl(CustomProcedures);
