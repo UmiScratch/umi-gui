@@ -13,7 +13,9 @@ const LoadScratchBlocksHOC = function (WrappedComponent) {
                 error: null
             };
             if (!this.state.loaded) {
-                LazyScratchBlocks.load()
+                LazyScratchBlocks.load(blocks => {
+                    this.props.onLoad(blocks);
+                })
                     .then(() => {
                         this.setState({
                             loaded: true

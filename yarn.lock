@@ -2805,6 +2805,11 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.1.tgz#b0433d0b4e9c847ef18868a4ef16fd5fc8271c48"
   integrity sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==
 
+clipcc-extension@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/clipcc-extension/-/clipcc-extension-0.2.0.tgz#30b792fb90863fd8df4631f73f49f6f67d3ee5a8"
+  integrity sha512-Oqu26y37Ncavogm9DR42nm7tXT3GZj4UJFVHM39GZ31agiTCyjZdRckXlfT/Dg6hohotiyTz5MxoL2OKa+Sxeg==
+
 cliui@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
@@ -6600,7 +6605,7 @@ jszip@3.1.5:
     pako "~1.0.2"
     readable-stream "~2.0.6"
 
-jszip@^3.1.3, jszip@^3.1.5:
+jszip@^3.1.3, jszip@^3.1.5, jszip@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.10.1.tgz#34aee70eb18ea1faec2f589208a157d1feb091c2"
   integrity sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==

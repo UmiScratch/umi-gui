@@ -121,6 +121,7 @@ const GUIComponent = props => {
         onActivateSoundsTab,
         onActivateTab,
         onClickLogo,
+        onBlocksLoad,
         onExtensionButtonClick,
         onProjectTelemetryEvent,
         onRequestCloseBackdropLibrary,
@@ -355,6 +356,7 @@ const GUIComponent = props => {
                                             }}
                                             stageSize={stageSize}
                                             vm={vm}
+                                            onLoad={onBlocksLoad}
                                         />
                                     </Box>
                                     <Box className={styles.extensionButtonContainer}>
@@ -477,6 +479,7 @@ GUIComponent.propTypes = {
     onTelemetryModalOptOut: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,
     renderLogin: PropTypes.func,
+    onBlocksLoad: PropTypes.func,
     showComingSoon: PropTypes.bool,
     soundsTabVisible: PropTypes.bool,
     stageSizeMode: PropTypes.oneOf(Object.keys(STAGE_SIZE_MODES)),

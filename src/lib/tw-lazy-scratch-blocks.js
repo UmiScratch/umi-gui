@@ -9,13 +9,15 @@ const get = () => {
     return _ScratchBlocks;
 };
 
-const load = () => {
+const load = (callback) => {
     if (_ScratchBlocks) {
+        callback(_ScratchBlocks);
         return Promise.resolve();
     }
     return import(/* webpackChunkName: "sb" */ 'scratch-blocks')
         .then(m => {
             _ScratchBlocks = m.default;
+            callback(_ScratchBlocks);
             return _ScratchBlocks;
         });
 };

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import ReactModal from 'react-modal';
 import VM from 'scratch-vm';
 import {injectIntl, intlShape} from 'react-intl';
+import bindAll from 'lodash.bindall';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import {
@@ -34,18 +35,26 @@ import ProjectSaverHOC from '../lib/project-saver-hoc.jsx';
 import QueryParserHOC from '../lib/query-parser-hoc.jsx';
 import storage from '../lib/storage';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
+import ExtensionAPI from '../lib/cc-extension-api.js';
 import vmManagerHOC from '../lib/vm-manager-hoc.jsx';
 import cloudManagerHOC from '../lib/cloud-manager-hoc.jsx';
 import TWFullScreenResizerHOC from '../lib/tw-fullscreen-resizer-hoc.jsx';
+import {loadBuiltinExtension, initExtensionAPI} from '../lib/cc-extension-manager.js';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import {setIsScratchDesktop} from '../lib/isScratchDesktop.js';
 
 class GUI extends React.Component {
+    constructor (props) {
+        super(props);
+        bindAll(this, ['handleBlocksLoad']);
+    }
     componentDidMount () {
         setIsScratchDesktop(this.props.isScratchDesktop);
         this.props.onStorageInit(storage);
         this.props.onVmInit(this.props.vm);
+        this.props.onLoadBuiltinExtension();
+        this.extensionAPI = new ExtensionAPI(this);
     }
     componentDidUpdate (prevProps) {
         if (this.props.projectId !== prevProps.projectId && this.props.projectId !== null) {
@@ -56,6 +65,9 @@ class GUI extends React.Component {
             // At this time the project view in www doesn't need to know when a project is unloaded
             this.props.onProjectLoaded();
         }
+    }
+    handleBlocksLoad (block) {
+        initExtensionAPI(this, this.props.vm, block);
     }
     render () {
         if (this.props.isError) {
@@ -86,6 +98,7 @@ class GUI extends React.Component {
         return (
             <GUIComponent
                 loading={fetchingProject || isLoading || loadingStateVisible}
+                onBlocksLoad={this.handleBlocksLoad}
                 {...componentProps}
             >
                 {children}
@@ -111,6 +124,7 @@ GUI.propTypes = {
     onProjectLoaded: PropTypes.func,
     onSeeCommunity: PropTypes.func,
     onStorageInit: PropTypes.func,
+    onLoadBuiltinExtension: PropTypes.func,
     onUpdateProjectId: PropTypes.func,
     onVmInit: PropTypes.func,
     projectHost: PropTypes.string,
@@ -167,7 +181,8 @@ const mapDispatchToProps = dispatch => ({
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
     onRequestCloseBackdropLibrary: () => dispatch(closeBackdropLibrary()),
     onRequestCloseCostumeLibrary: () => dispatch(closeCostumeLibrary()),
-    onRequestCloseTelemetryModal: () => dispatch(closeTelemetryModal())
+    onRequestCloseTelemetryModal: () => dispatch(closeTelemetryModal()),
+    onLoadBuiltinExtension: () => loadBuiltinExtension(dispatch)
 });
 
 const ConnectedGUI = injectIntl(connect(

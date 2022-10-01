@@ -7,8 +7,10 @@ import {LANGUAGE_KEY} from '../lib/detect-locale.js';
 
 addLocaleData(localeData);
 
+const UPDATE_LOCALE = 'scratch-gui/locales/UPDATE_LOCALE';
 const UPDATE_LOCALES = 'scratch-gui/locales/UPDATE_LOCALES';
 const SELECT_LOCALE = 'scratch-gui/locales/SELECT_LOCALE';
+const ADD_LOCALE = 'scratch-gui/locales/ADD_LOCALE';
 
 const initialState = {
     isRtl: false,
@@ -27,6 +29,12 @@ const reducer = function (state, action) {
             messagesByLocale: state.messagesByLocale,
             messages: state.messagesByLocale[action.locale]
         });
+    case UPDATE_LOCALE:
+        Object.assign(state.messages,
+            state.messagesByLocale['en'],
+            state.messagesByLocale[state.locale]
+        );
+        return state;
     case UPDATE_LOCALES:
         return Object.assign({}, state, {
             isRtl: state.isRtl,
@@ -34,6 +42,15 @@ const reducer = function (state, action) {
             messagesByLocale: action.messagesByLocale,
             messages: action.messagesByLocale[state.locale]
         });
+    case ADD_LOCALE:
+        const newState = Object.assign({}, state);
+        for (const locale in action.messagesByLocale) {
+            newState.messagesByLocale[locale] = Object.assign({},
+                newState.messagesByLocale[locale],
+                action.messagesByLocale[locale]
+            );
+        }
+        return newState;
     default:
         return state;
     }
@@ -50,9 +67,21 @@ const selectLocale = function (locale) {
     };
 };
 
+const updateLocale = function () {
+    return {
+        type: UPDATE_LOCALE
+    };
+};
+
 const setLocales = function (localesMessages) {
     return {
         type: UPDATE_LOCALES,
+        messagesByLocale: localesMessages
+    };
+};
+const addLocales = function (localesMessages) {
+    return {
+        type: ADD_LOCALE,
         messagesByLocale: localesMessages
     };
 };
@@ -77,5 +106,7 @@ export {
     initialState as localesInitialState,
     initLocale,
     selectLocale,
+    addLocales,
+    updateLocale,
     setLocales
 };

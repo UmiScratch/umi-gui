@@ -1,8 +1,19 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {connect} from 'react-redux';
 import VM from 'scratch-vm';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import {
+    initExtension,
+    enableExtension,
+    disableExtension
+} from '../reducers/cc-extension';
+import {
+    addLocales
+} from '../reducers/locales';
+
+import {loadCcx} from '../lib/cc-extension-manager.js';
 
 import extensionLibraryContent from '../lib/libraries/extensions/index.jsx';
 
@@ -62,21 +73,30 @@ class ExtensionLibrary extends React.PureComponent {
         };
         input.click();
     }
-    loadExtensionFromFile (file, ext) {
+    async loadExtensionFromFile (file, ext) {
         console.log(file, ext)
         switch (ext) {
-        case 'js':
+        case 'js': {
             const reader = new FileReader();
             reader.readAsDataURL(file, 'utf8');
-            reader.onload = () => {
-                this.props.vm.extensionManager.loadExtensionURL(reader.result);
+            reader.onload = async () => {
+                await this.props.vm.extensionManager.loadExtensionURL(reader.result);
+                if (this.props.visible) this.props.onRequestClose();
             };
             break;
-        case 'ccx':
-            alert('🎯 todo');
+        }
+        case 'ccx': {
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(file, 'utf8');
+            reader.onload = async () => {
+                await this.props.loadCcx(reader.result);
+                if (this.props.visible) this.props.onRequestClose();
+            };
             break;
-        default:
+        }
+        default: {
             alert('🤯 Unknown extension format');
+        }
         }
     }
     handleItemSelect (item) {
@@ -119,10 +139,21 @@ class ExtensionLibrary extends React.PureComponent {
         }
     }
     render () {
-        const extensionLibraryThumbnailData = extensionLibraryContent.map(extension => ({
-            rawURL: extension.iconURL || extensionIcon,
-            ...extension
-        }));
+        const extensionLibraryThumbnailData = Object.values(this.props.extension || {})
+            .map(extension => ({
+                ...extension,
+                rawURL: extension.iconURL || extensionIcon,
+                featured: true,
+                name: this.props.intl.formatMessage({id: extension.name}),
+                description: this.props.intl.formatMessage({id: extension.description})
+            }))
+            .sort((a, b) => {
+                if (a.enabled === b.enabled) {
+                    if (a.name === b.name) return 0;
+                    return a.name < b.name ? -1 : 1;
+                }
+                return a.enabled ? -1 : 1;
+            });
         return (
             <LibraryComponent
                 data={extensionLibraryThumbnailData}
@@ -139,7 +170,31 @@ class ExtensionLibrary extends React.PureComponent {
     }
 }
 
+const mapStateToProps = state => ({
+    extension: state.scratchGui.extension.extension
+});
+
+const mapDispatchToProps = dispatch => ({
+    initExtension: data => dispatch(initExtension(data)),
+    setExtensionEnable: id => dispatch(enableExtension(id)),
+    setExtensionDisable: id => dispatch(disableExtension(id)),
+    addLocales: msgs => dispatch(addLocales(msgs)),
+    loadCcx: (file) => loadCcx(dispatch, file)
+});
+
 ExtensionLibrary.propTypes = {
+    extension: PropTypes.shape({
+        extensionId: PropTypes.string,
+        iconURL: PropTypes.string,
+        insetIconURL: PropTypes.string,
+        author: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.string)
+        ]),
+        name: PropTypes.string,
+        description: PropTypes.string,
+        requirement: PropTypes.arrayOf(PropTypes.string)
+    }),
     intl: intlShape.isRequired,
     onCategorySelected: PropTypes.func,
     onRequestClose: PropTypes.func,
@@ -147,4 +202,7 @@ ExtensionLibrary.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired // eslint-disable-line react/no-unused-prop-types
 };
 
-export default injectIntl(ExtensionLibrary);
+export default injectIntl(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ExtensionLibrary));
