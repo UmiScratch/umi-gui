@@ -104,6 +104,14 @@ class ExtensionLibrary extends React.PureComponent {
         if (item.incompatibleWithScratch && !confirm(this.props.intl.formatMessage(messages.incompatible))) {
             return;
         }
+        if (item.api > 0) {
+            item.id = item.extensionId;
+            ClipCCExtension.extensionManager.loadExtensionsWithMode(
+                [item],
+                extension => this.props.vm.extensionManager.loadExtensionURL(extension)
+            );
+            return;
+        }
         const id = item.extensionId;
         let url = item.extensionURL ? item.extensionURL : id;
         const isCustomURL = !item.disabled && !id;

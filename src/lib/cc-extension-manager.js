@@ -168,8 +168,7 @@ const loadBuiltinExtension = dispatch => {
             author: ext.author,
             requirement: ext.requirement,
             api: 0,
-            version: '1.0.0',
-            switchable: false
+            version: '1.0.0'
         }, new ClipCCExtension.Extension());
         dispatch(initExtension(ext));
     }
@@ -264,10 +263,10 @@ const loadCcx = async (dispatch, file) => {
         author: info.author,
         requirement: info.requirement,
         instance: instance,
-        switchable: true,
         api: info.api,
         version: info.version,
-        fileContent: file
+        fileContent: file,
+        incompatibleWithScratch: true
     };
 
     ClipCCExtension.extensionManager.addInstance(info.id, info, instance);
