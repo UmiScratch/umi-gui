@@ -626,6 +626,13 @@ class MenuBar extends React.Component {
                                                         />
                                                     )}
                                                 </MenuItem>
+                                                <MenuItem onClick={this.getSaveToComputerHandler(extended.exportProject)}>
+                                                    <FormattedMessage
+                                                        defaultMessage="Export to sb3"
+                                                        description="Menu bar item for export a sb3 to your computer" // eslint-disable-line max-len
+                                                        id="gui.menuBar.export"
+                                                    />
+                                                </MenuItem>
                                             </React.Fragment>
                                         )}</SB3Downloader>
                                     </MenuSection>

@@ -40,6 +40,7 @@ class SB3Downloader extends React.Component {
         super(props);
         bindAll(this, [
             'downloadProject',
+            'exportProject',
             'saveAsNew',
             'saveToLastFile',
             'saveToLastFileOrNew'
@@ -61,6 +62,16 @@ class SB3Downloader extends React.Component {
         }
         this.startedSaving();
         this.props.saveProjectSb3().then(content => {
+            this.finishedSaving();
+            downloadBlob(this.props.projectFilename, content);
+        });
+    }
+    exportProject () {
+        if (!this.props.canSaveProject) {
+            return;
+        }
+        this.startedSaving();
+        this.props.exportProjectSb3().then(content => {
             this.finishedSaving();
             downloadBlob(this.props.projectFilename, content);
         });
@@ -134,7 +145,8 @@ class SB3Downloader extends React.Component {
                 smartSave: this.saveToLastFileOrNew
             } : {
                 available: false,
-                smartSave: this.downloadProject
+                smartSave: this.downloadProject,
+                exportProject: this.exportProject,
             }
         );
     }
@@ -157,6 +169,7 @@ SB3Downloader.propTypes = {
     onSaveFinished: PropTypes.func,
     projectFilename: PropTypes.string,
     saveProjectSb3: PropTypes.func,
+    exportProjectSb3: PropTypes.func,
     canSaveProject: PropTypes.bool,
     onSetFileHandle: PropTypes.func,
     onSetProjectTitle: PropTypes.func,
@@ -172,6 +185,7 @@ SB3Downloader.defaultProps = {
 const mapStateToProps = state => ({
     fileHandle: state.scratchGui.tw.fileHandle,
     saveProjectSb3: state.scratchGui.vm.saveProjectSb3.bind(state.scratchGui.vm),
+    exportProjectSb3: state.scratchGui.vm.exportProjectSb3.bind(state.scratchGui.vm),
     canSaveProject: getIsShowingProject(state.scratchGui.projectState.loadingState),
     projectFilename: getProjectFilename(state.scratchGui.projectTitle, projectTitleInitialState)
 });

@@ -54,8 +54,17 @@ class ExtensionLibrary extends React.PureComponent {
         bindAll(this, [
             'handleItemSelect',
             'handleUploadExtension',
-            'loadExtensionFromFile'
+            'loadExtensionFromFile',
+            'handleClickExtensionStore',
+            'handleExtensionMessage'
         ]);
+        this.extensionChannel = global.BroadcastChannel ? new BroadcastChannel('extension') : null;
+    }
+    componentDidMount () {
+        if (this.extensionChannel) this.extensionChannel.addEventListener('message', this.handleExtensionMessage);
+    }
+    componentWillUnmount () {
+        if (this.extensionChannel) this.extensionChannel.removeEventListener('message', this.handleExtensionMessage);
     }
     // cc - upload extension from computer
     handleUploadExtension () {
@@ -98,6 +107,69 @@ class ExtensionLibrary extends React.PureComponent {
             alert('🤯 Unknown extension format');
         }
         }
+    }
+    handleExtensionMessage (event) {
+        if (event.data.action === 'add'){
+            fetch(event.data.download)
+                .then(async response => {
+                    await this.props.loadCcx(response.arrayBuffer());
+                    this.extensionChannel.postMessage({
+                        action: 'addSuccess',
+                        extensionId: event.data.extension
+                    });
+                })
+                .catch(err => {
+                    this.extensionChannel.postMessage({
+                        action: 'addFail',
+                        extensionId: event.data.extension,
+                        error: err
+                    });
+                });
+        }
+        
+        // 更新逻辑待完善，暂时与 add 保持一致
+        if (event.data.action === 'upd'){
+            fetch(event.data.download)
+                .then(async response => {
+                    await this.props.loadCcx(response.arrayBuffer());
+                    this.extensionChannel.postMessage({
+                        action: 'addSuccess',
+                        extensionId: event.data.extension
+                    });
+                })
+                .catch(err => {
+                    this.extensionChannel.postMessage({
+                        action: 'addFail',
+                        extensionId: event.data.extension,
+                        error: err
+                    });
+                });
+        }
+
+        if (event.data.action === 'get') {
+            const extensionList = [];
+            for (const ext in this.props.extension) {
+                const { version = '1.0.0' } = this.props.extension[ext];
+                extensionList.push(`${ext}@${version}`);
+            };
+            log.info(extensionList);
+            this.extensionChannel.postMessage({
+                action: 'tell',
+                data: extensionList
+            });
+        }
+    }
+    handleClickExtensionStore () {
+        if (!this.extensionChannel) {
+            alert(this.props.intl.formatMessage(messages.unsupportChannel));
+            return;
+        }
+        window.open(`/extension`, 'extension',
+            `width=800,
+            height=510,
+            resizable=yes,
+            scrollbars=yes,
+            status=yes`);
     }
     handleItemSelect (item) {
         // eslint-disable-next-line no-alert
@@ -167,7 +239,7 @@ class ExtensionLibrary extends React.PureComponent {
                 data={extensionLibraryThumbnailData}
                 filterable={true}
                 onUpload={this.handleUploadExtension}
-                onFromWeb={() => alert('🍙')}
+                onFromWeb={this.handleClickExtensionStore}
                 id="extensionLibrary"
                 title={this.props.intl.formatMessage(messages.extensionTitle)}
                 visible={this.props.visible}
