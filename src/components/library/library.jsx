@@ -8,6 +8,7 @@ import LibraryItem from '../../containers/library-item.jsx';
 import Modal from '../../containers/modal.jsx';
 import Divider from '../divider/divider.jsx';
 import Filter from '../filter/filter.jsx';
+import Button from '../button/button.jsx';
 import TagButton from '../../containers/tag-button.jsx';
 import Spinner from '../spinner/spinner.jsx';
 
@@ -23,6 +24,16 @@ const messages = defineMessages({
         id: 'gui.library.allTag',
         defaultMessage: 'All',
         description: 'Label for library tag to revert to all items after filtering by tag.'
+    },
+    uploadButton: {
+        id: 'gui.library.uploadButton',
+        defaultMessage: 'Upload',
+        description: 'Label for extension library button to upload an extension.'
+    },
+    fromOnline: {
+        id: 'gui.library.fromOnline',
+        defaultMessage: 'From Online',
+        description: 'Label for from extension store link in the extension library'
     }
 });
 
@@ -200,6 +211,22 @@ class LibraryComponent extends React.Component {
                         {this.props.filterable && this.props.tags && (
                             <Divider className={classNames(styles.filterBarItem, styles.divider)} />
                         )}
+                        {this.props.onUpload &&
+                            <Button
+                                className={styles.uploadButton}
+                                onClick={this.props.onUpload}
+                            >
+                                {this.props.intl.formatMessage(messages.uploadButton)}
+                            </Button>
+                        }
+                        {this.props.onFromWeb &&
+                            <Button
+                                className={styles.uploadButton}
+                                onClick={this.props.onFromWeb}
+                            >
+                                {this.props.intl.formatMessage(messages.fromOnline)}
+                            </Button>
+                        }
                         {this.props.tags &&
                             <div className={styles.tagWrapper}>
                                 {tagListPrefix.concat(this.props.tags).map((tagProps, id) => (

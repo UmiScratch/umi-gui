@@ -6,6 +6,9 @@ const cloudHost = searchParams.get('cloud_host') || 'wss://clouddata.turbowarp.o
 
 const RenderGUI = props => (
     <GUI
+        onClickLogo={() => {
+            window.open('https://github.com/SimonShiki/umi-gui');
+        }}
         cloudHost={cloudHost}
         canSave={false}
         basePath={process.env.ROOT}

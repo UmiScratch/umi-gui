@@ -41,8 +41,43 @@ class ExtensionLibrary extends React.PureComponent {
     constructor (props) {
         super(props);
         bindAll(this, [
-            'handleItemSelect'
+            'handleItemSelect',
+            'handleUploadExtension',
+            'loadExtensionFromFile'
         ]);
+    }
+    // cc - upload extension from computer
+    handleUploadExtension () {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', '.js,.ccx');
+        input.setAttribute('multiple', true);
+        input.onchange = event => {
+            const files = event.target.files;
+            for (const file of files) {
+                const fileName = file.name;
+                const fileExt = fileName.substring(fileName.lastIndexOf('.') + 1);
+                this.loadExtensionFromFile(file, fileExt);
+            }
+        };
+        input.click();
+    }
+    loadExtensionFromFile (file, ext) {
+        console.log(file, ext)
+        switch (ext) {
+        case 'js':
+            const reader = new FileReader();
+            reader.readAsDataURL(file, 'utf8');
+            reader.onload = () => {
+                this.props.vm.extensionManager.loadExtensionURL(reader.result);
+            };
+            break;
+        case 'ccx':
+            alert('🎯 todo');
+            break;
+        default:
+            alert('🤯 Unknown extension format');
+        }
     }
     handleItemSelect (item) {
         // eslint-disable-next-line no-alert
@@ -91,7 +126,9 @@ class ExtensionLibrary extends React.PureComponent {
         return (
             <LibraryComponent
                 data={extensionLibraryThumbnailData}
-                filterable={false}
+                filterable={true}
+                onUpload={this.handleUploadExtension}
+                onFromWeb={() => alert('🍙')}
                 id="extensionLibrary"
                 title={this.props.intl.formatMessage(messages.extensionTitle)}
                 visible={this.props.visible}
