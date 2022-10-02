@@ -627,6 +627,7 @@ class Blocks extends React.Component {
                         options={{
                             media: options.media
                         }}
+                        parentWorkspace={this.workspace}
                         onRequestClose={this.handleCustomProceduresClose}
                     />
                 ) : null}
@@ -736,7 +737,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onActivateColorPicker: callback => dispatch(activateColorPicker(callback)),
-    onActivateCustomProcedures: (data, callback) => dispatch(activateCustomProcedures(data, callback)),
+    onActivateCustomProcedures: (data, callback, create) => dispatch(activateCustomProcedures(data, callback, create)),
     onOpenConnectionModal: id => {
         dispatch(setConnectionModalExtensionId(id));
         dispatch(openConnectionModal());

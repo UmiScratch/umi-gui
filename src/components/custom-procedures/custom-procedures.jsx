@@ -115,6 +115,7 @@ const CustomProcedures = props => (
                 <label>
                     <input
                         checked={props.return}
+                        disabled={props.disableReturn}
                         type="checkbox"
                         onChange={props.onToggleReturn}
                     />
@@ -162,7 +163,8 @@ CustomProcedures.propTypes = {
     onToggleWarp: PropTypes.func.isRequired,
     onToggleReturn: PropTypes.func.isRequired,
     warp: PropTypes.bool.isRequired,
-    return: PropTypes.bool.isRequired
+    return: PropTypes.bool.isRequired,
+    disableReturn: PropTypes.bool.isRequired
 };
 
 export default injectIntl(CustomProcedures);

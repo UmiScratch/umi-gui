@@ -106,8 +106,10 @@ class CustomProcedures extends React.Component {
         this.mutationRoot.domToMutation(this.props.mutator);
         this.mutationRoot.initSvg();
         this.mutationRoot.render();
+        this.initialProccode = this.mutationRoot.procCode_;
         this.setState({warp: this.mutationRoot.getWarp()});
         this.setState({return: this.mutationRoot.getReturn()});
+        this.mutationRoot.updateProcedureShape();
         // Allow the initial events to run to position this block, then focus.
         setTimeout(() => {
             this.mutationRoot.focusLastEditor_();
@@ -117,6 +119,17 @@ class CustomProcedures extends React.Component {
         this.props.onRequestClose();
     }
     handleOk () {
+        const {procCode_} = this.mutationRoot;
+        if (procCode_ === '') {
+            alert('Please enter a name for your procedure');
+            return;
+        }
+        
+        // Check whether name is used only when proccode has been changed
+        if (this.initialProccode !== procCode_ && this.props.parentWorkspace.getProcedureList().isNameUsed(procCode_)) {
+            alert('Duplicated name');
+            return;
+        }
         const newMutation = this.mutationRoot ? this.mutationRoot.mutationToDom(true) : null;
         this.props.onRequestClose(newMutation);
     }
@@ -147,14 +160,17 @@ class CustomProcedures extends React.Component {
             const newReturn = !this.mutationRoot.getReturn();
             this.mutationRoot.setReturn(newReturn);
             this.setState({return: newReturn});
+            this.mutationRoot.updateProcedureShape();
         }
     }
     render () {
+        console.log(this.initialProccode);
         return (
             <CustomProceduresComponent
                 componentRef={this.setBlocks}
                 warp={this.state.warp}
                 return={this.state.return}
+                disableReturn={!this.props.isCreate}
                 onAddBoolean={this.handleAddBoolean}
                 onAddLabel={this.handleAddLabel}
                 onAddTextNumber={this.handleAddTextNumber}
@@ -169,6 +185,7 @@ class CustomProcedures extends React.Component {
 
 CustomProcedures.propTypes = {
     isRtl: PropTypes.bool,
+    isCreate: PropTypes.bool.isRequired,
     mutator: PropTypes.instanceOf(Element),
     onRequestClose: PropTypes.func.isRequired,
     options: PropTypes.shape({
@@ -200,6 +217,7 @@ CustomProcedures.defaultProps = {
 
 const mapStateToProps = state => ({
     isRtl: state.locales.isRtl,
+    isCreate: state.scratchGui.customProcedures.create,
     mutator: state.scratchGui.customProcedures.mutator
 });
 
