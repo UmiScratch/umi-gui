@@ -9248,7 +9248,8 @@ schema-utils@^3.0.0:
 
 "scratch-blocks@git+https://github.com/SimonShiki/umi-blocks.git#master":
   version "0.1.0"
-  resolved "git+https://github.com/SimonShiki/umi-blocks.git#bdb14adf1c84cb40c9246deccfad6e5492f1d112"
+  uid b2a195f2dd1f1e529697b8ff9d0025c89b747b60
+  resolved "git+https://github.com/SimonShiki/umi-blocks.git#b2a195f2dd1f1e529697b8ff9d0025c89b747b60"
   dependencies:
     exports-loader "0.7.0"
     google-closure-library "20190301.0.0"
