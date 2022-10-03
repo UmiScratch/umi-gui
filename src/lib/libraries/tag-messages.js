@@ -125,5 +125,31 @@ export default defineMessages({
         defaultMessage: 'Letters',
         description: 'Tag for filtering a library for letters',
         id: 'gui.libraryTags.letters'
+    },
+    // umi - extension tag messages
+    scratch: {
+        defaultMessage: 'Scratch',
+        description: 'Tag for filtering a library for Scratch extensions',
+        id: 'gui.libraryTags.scratch'
+    },
+    clipcc: {
+        defaultMessage: 'ClipCC',
+        description: 'Tag for filtering a library for ClipCC extensions',
+        id: 'gui.libraryTags.clipcc'
+    },
+    gitblock: {
+        defaultMessage: 'GitBlock',
+        description: 'Tag for filtering a library for GitBlock extensions',
+        id: 'gui.libraryTags.gitblock'
+    },
+    other: {
+        defaultMessage: 'Other',
+        description: 'Tag for filtering a library for Other extensions',
+        id: 'gui.libraryTags.other'
+    },
+    ccw: {
+        defaultMessage: 'CCW',
+        description: 'Tag for filtering a library for CCW extensions',
+        id: 'gui.libraryTags.ccw'
     }
 });

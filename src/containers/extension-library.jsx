@@ -17,6 +17,7 @@ import {loadCcx} from '../lib/cc-extension-manager.js';
 
 import extensionLibraryContent from '../lib/libraries/extensions/index.jsx';
 
+import extensionTags from '../lib/libraries/umi-extension-tags';
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 
@@ -238,6 +239,7 @@ class ExtensionLibrary extends React.PureComponent {
             <LibraryComponent
                 data={extensionLibraryThumbnailData}
                 filterable={true}
+                tags={extensionTags}
                 onUpload={this.handleUploadExtension}
                 onFromWeb={this.handleClickExtensionStore}
                 id="extensionLibrary"

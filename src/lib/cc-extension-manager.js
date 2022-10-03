@@ -60,7 +60,8 @@ const builtinExtensions = [
         insetIconURL: musicInsetIconURL,
         author: 'Scratch Team',
         name: 'gui.extension.music.name',
-        description: 'gui.extension.music.description'
+        description: 'gui.extension.music.description',
+        tags: ['scratch']
     },
     {
         extensionId: 'pen',
@@ -68,7 +69,8 @@ const builtinExtensions = [
         insetIconURL: penInsetIconURL,
         author: 'Scratch Team',
         name: 'gui.extension.pen.name',
-        description: 'gui.extension.pen.description'
+        description: 'gui.extension.pen.description',
+        tags: ['scratch']
     },
     {
         extensionId: 'videoSensing',
@@ -76,7 +78,8 @@ const builtinExtensions = [
         insetIconURL: videoSensingInsetIconURL,
         author: 'Scratch Team',
         name: 'gui.extension.videosensing.name',
-        description: 'gui.extension.videosensing.description'
+        description: 'gui.extension.videosensing.description',
+        tags: ['scratch']
     },
     {
         extensionId: 'text2speech',
@@ -85,7 +88,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'Amazon Web Services'],
         name: 'gui.extension.text2speech.name',
         description: 'gui.extension.text2speech.description',
-        requirement: ['internet']
+        requirement: ['internet'],
+        tags: ['scratch']
     },
     {
         extensionId: 'translate',
@@ -94,7 +98,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'Google'],
         name: 'gui.extension.translate.name',
         description: 'gui.extension.translate.description',
-        requirement: ['internet']
+        requirement: ['internet'],
+        tags: ['scratch']
     },
     {
         extensionId: 'makeymakey',
@@ -102,7 +107,8 @@ const builtinExtensions = [
         insetIconURL: makeymakeyInsetIconURL,
         author: ['Scratch Team', 'JoyLabz'],
         name: 'Makey Makey',
-        description: 'gui.extension.makeymakey.description'
+        description: 'gui.extension.makeymakey.description',
+        tags: ['scratch']
     },
     {
         extensionId: 'micro:bit',
@@ -111,7 +117,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'micro:bit'],
         name: 'micro:bit',
         description: 'gui.extension.microbit.description',
-        requirement: ['internet', 'bluetooth']
+        requirement: ['internet', 'bluetooth'],
+        tags: ['scratch']
     },
     {
         extensionId: 'ev3',
@@ -120,7 +127,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'LEGO'],
         name: 'LEGO MINDSTORMS EV3',
         description: 'gui.extension.ev3.description',
-        requirement: ['internet', 'bluetooth']
+        requirement: ['internet', 'bluetooth'],
+        tags: ['scratch']
     },
     {
         extensionId: 'boost',
@@ -129,7 +137,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'LEGO'],
         name: 'LEGO BOOST',
         description: 'gui.extension.boost.description',
-        requirement: ['internet', 'bluetooth']
+        requirement: ['internet', 'bluetooth'],
+        tags: ['scratch']
     },
     {
         extensionId: 'wedo2',
@@ -138,7 +147,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'LEGO'],
         name: 'LEGO Education WeDo 2.0',
         description: 'gui.extension.wedo2.description',
-        requirement: ['internet', 'bluetooth']
+        requirement: ['internet', 'bluetooth'],
+        tags: ['scratch']
     },
     {
         extensionId: 'gdxfor',
@@ -147,7 +157,8 @@ const builtinExtensions = [
         author: ['Scratch Team', 'Vernier'],
         name: 'Go Direct Force & Acceleration',
         description: 'gui.extension.gdxfor.description',
-        requirement: ['internet', 'bluetooth']
+        requirement: ['internet', 'bluetooth'],
+        tags: ['scratch']
     },
     {
         extensionId: 'tw',
@@ -155,7 +166,8 @@ const builtinExtensions = [
         author: ['Turbowarp'],
         name: 'tw.twExtension.name',
         description: 'tw.twExtension.description',
-        incompatibleWithScratch: true
+        incompatibleWithScratch: true,
+        tags: ['other']
     }
     ];
 
@@ -266,7 +278,8 @@ const loadCcx = async (dispatch, file) => {
         api: info.api,
         version: info.version,
         fileContent: file,
-        incompatibleWithScratch: true
+        incompatibleWithScratch: true,
+        tags: ['clipcc']
     };
 
     ClipCCExtension.extensionManager.addInstance(info.id, info, instance);

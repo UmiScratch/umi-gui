@@ -32,7 +32,7 @@ const messages = defineMessages({
     },
     fromOnline: {
         id: 'gui.library.fromOnline',
-        defaultMessage: 'From Online',
+        defaultMessage: 'Get from online',
         description: 'Label for from extension store link in the extension library'
     }
 });
@@ -211,22 +211,6 @@ class LibraryComponent extends React.Component {
                         {this.props.filterable && this.props.tags && (
                             <Divider className={classNames(styles.filterBarItem, styles.divider)} />
                         )}
-                        {this.props.onUpload &&
-                            <Button
-                                className={styles.uploadButton}
-                                onClick={this.props.onUpload}
-                            >
-                                {this.props.intl.formatMessage(messages.uploadButton)}
-                            </Button>
-                        }
-                        {this.props.onFromWeb &&
-                            <Button
-                                className={styles.uploadButton}
-                                onClick={this.props.onFromWeb}
-                            >
-                                {this.props.intl.formatMessage(messages.fromOnline)}
-                            </Button>
-                        }
                         {this.props.tags &&
                             <div className={styles.tagWrapper}>
                                 {tagListPrefix.concat(this.props.tags).map((tagProps, id) => (
@@ -243,6 +227,23 @@ class LibraryComponent extends React.Component {
                                     />
                                 ))}
                             </div>
+                        }
+                        {this.props.onUpload && <Divider className={classNames(styles.filterBarItem, styles.divider)} />}
+                        {this.props.onUpload &&
+                            <Button
+                                className={styles.uploadButton}
+                                onClick={this.props.onUpload}
+                            >
+                                {this.props.intl.formatMessage(messages.uploadButton)}
+                            </Button>
+                        }
+                        {this.props.onFromWeb &&
+                            <Button
+                                className={styles.uploadButton}
+                                onClick={this.props.onFromWeb}
+                            >
+                                {this.props.intl.formatMessage(messages.fromOnline)}
+                            </Button>
                         }
                     </div>
                 )}

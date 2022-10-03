@@ -21,17 +21,19 @@
 
 .filter-bar {
     display: flex;
+    flex-wrap:wrap;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    height: calc($library-filter-bar-height + 2rem); /* padding */
+    min-height: $library-filter-bar-height; /* padding */
     background-color: $motion-transparent;
-    padding: 0 1rem;
+    padding: 1rem;
     font-size: .875rem;
 }
 
 .filter-bar-item {
     margin-right: .75rem;
+    margin-bottom: .5rem;
 }
 
 .filter {
