@@ -45,6 +45,8 @@
 
 .scratch-logo {
     height:  1.6rem;
+    opacity: 0.7;
+    filter: brightness(120%);
     vertical-align: middle;
 }
 

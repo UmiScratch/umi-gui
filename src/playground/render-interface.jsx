@@ -198,9 +198,9 @@ class Interface extends React.Component {
     }
     handleUpdateProjectTitle (title, isDefault) {
         if (isDefault || !title) {
-            document.title = `TurboWarp - ${this.props.intl.formatMessage(messages.defaultTitle)}`;
+            document.title = `Umi - ${this.props.intl.formatMessage(messages.defaultTitle)}`;
         } else {
-            document.title = `${title} - TurboWarp`;
+            document.title = `${title} - Umi`;
         }
     }
     render () {
@@ -230,6 +230,9 @@ class Interface extends React.Component {
                 {isHomepage ? (
                     <div className={styles.menu}>
                         <WrappedMenuBar
+                            onClickLogo={() => {
+                                window.open('https://github.com/SimonShiki/umi-gui');
+                            }}
                             canChangeLanguage
                             canManageFiles
                             enableSeeInside
@@ -333,9 +336,9 @@ class Interface extends React.Component {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="TurboWarp is a Scratch mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
-                                        description="Description of TurboWarp"
-                                        id="tw.home.description"
+                                        defaultMessage="Umi is a Turbowarp (Scratch) mod that focuses on adding features without breaking compatibility."
+                                        description="Description of Umi"
+                                        id="umi.home.description"
                                     />
                                 </p>
                             </div>
