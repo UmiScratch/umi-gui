@@ -51,6 +51,23 @@ import boostInsetIconURL from './libraries/extensions/boost/boost-small.svg';
 import gdxforIconURL from './libraries/extensions/gdxfor/gdxfor.png';
 import gdxforInsetIconURL from './libraries/extensions/gdxfor/gdxfor-small.svg';
 
+// Gitblock
+import battleImage from './libraries/extensions/battle/battle.png';
+import battleInsetImage from './libraries/extensions/battle/battle-small.svg';
+import stringExtImage from './libraries/extensions/stringExt/string-ext.png';
+import stringExtInsetImage from './libraries/extensions/stringExt/string-ext-small.svg';
+import puzzleImage from './libraries/extensions/puzzle/puzzle.png';
+import puzzleInsetImage from './libraries/extensions/puzzle/puzzle-small.svg';
+import communityImage from './libraries/extensions/community/community.png';
+import communityInsetImage from './libraries/extensions/community/community-small.svg';
+import kinectImage from './libraries/extensions/kinect/kinect.png';
+import kinectInsetImage from './libraries/extensions/kinect/kinect-small.svg';
+import lazyAudioIconURL from './libraries/extensions/lazyAudio/lazy-audio.png';
+import lazyAudioInsetIconURL from './libraries/extensions/lazyAudio/lazy-audio-small.svg';
+import jsInsetIconURL from './libraries/extensions/js/js-small.svg';
+import canvasIconURL from './libraries/extensions/canvas/canvas.png';
+import canvasInsetIconURL from './libraries/extensions/canvas/canvas-small.svg';
+
 import twIcon from './libraries/extensions/tw/tw.svg';
 
 const builtinExtensions = [
@@ -159,6 +176,86 @@ const builtinExtensions = [
         description: 'gui.extension.gdxfor.description',
         requirement: ['internet', 'bluetooth'],
         tags: ['scratch']
+    },
+    {
+        extensionId: 'canvas',
+        iconURL: canvasIconURL,
+        insetIconURL: canvasInsetIconURL,
+        author: ['Ye Jun'],
+        name: 'Canvas',
+        description: 'Advanced Canvas Extension.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'lazyAudio',
+        iconURL: lazyAudioIconURL,
+        insetIconURL: lazyAudioInsetIconURL,
+        author: ['Ye Jun'],
+        name: 'Lazy Audio',
+        description: 'Load audio lazily.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'battle',
+        iconURL: battleImage,
+        insetIconURL: battleInsetImage,
+        author: ['Ye Jun'],
+        name: 'Battle',
+        description: 'Strategy Battle Game Blocks.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'stringExt',
+        iconURL: stringExtImage,
+        insetIconURL: stringExtInsetImage,
+        author: ['Ye Jun'],
+        name: 'String Extension',
+        description: 'Process strings.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'js',
+        iconURL: stringExtImage,
+        insetIconURL: jsInsetIconURL,
+        author: ['Ye Jun'],
+        name: 'JavaScript',
+        description: 'Get, Decode, Encode, Post',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'community',
+        iconURL: communityImage,
+        insetIconURL: communityInsetImage,
+        author: ['Ye Jun'],
+        name: 'Community',
+        description: 'Community blocks.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'puzzle',
+        iconURL: puzzleImage,
+        insetIconURL: puzzleInsetImage,
+        author: ['Ye Jun'],
+        name: 'Puzzle',
+        description: 'Puzzle blocks.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
+    },
+    {
+        extensionId: 'kinect',
+        iconURL: kinectImage,
+        insetIconURL: kinectInsetImage,
+        author: ['Ye Jun'],
+        name: 'Kinect',
+        description: 'Kinect blocks.',
+        incompatibleWithScratch: true,
+        tags: ['gitblock']
     },
     {
         extensionId: 'tw',
