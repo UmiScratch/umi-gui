@@ -80,6 +80,10 @@ import lazyMusicIcon from './libraries/extensions/lazyMusic/lazyMusic.png';
 import Box2DIcon from './libraries/extensions/box2d/box2d.png';
 import arkosExtensionsIcon from './libraries/extensions/arkosExtensions/arkosExtensions.png';
 
+// Xiaomawang
+import XiaomaIcon  from './libraries/extensions/xiaoma/xiaoma.png';
+import XiaomaInsetIcon  from './libraries/extensions/xiaoma/xiaomaInset.png';
+
 import twIcon from './libraries/extensions/tw/tw.svg';
 import customExtensionIcon from './libraries/extensions/custom/custom.svg';
 
@@ -544,6 +548,16 @@ const builtinExtensions = [
         description: 'Kinect blocks.',
         incompatibleWithScratch: true,
         tags: ['gitblock']
+    },
+    {
+        extensionId: 'xiaoma',
+        iconURL: XiaomaIcon,
+        insetIconURL: XiaomaInsetIcon,
+        author: ['Xiaomawang'],
+        name: 'XMW Blocks',
+        description: 'XMW extend blocks.',
+        incompatibleWithScratch: true,
+        tags: ['other']
     },
     {
         extensionId: 'tw',
