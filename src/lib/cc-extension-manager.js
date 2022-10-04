@@ -51,6 +51,12 @@ import boostInsetIconURL from './libraries/extensions/boost/boost-small.svg';
 import gdxforIconURL from './libraries/extensions/gdxfor/gdxfor.png';
 import gdxforInsetIconURL from './libraries/extensions/gdxfor/gdxfor-small.svg';
 
+// ClipCC
+import HTTPIOImage from './libraries/extensions/HTTPIO/HTTPIO.png';
+import HTTPIOInsetImage from './libraries/extensions/HTTPIO/clipcc.httpio-small.svg';
+import JSONImage from './libraries/extensions/JSON/JSON.png';
+import JSONInsetImage from './libraries/extensions/JSON/ccjson-small.svg';
+
 // Gitblock
 import battleImage from './libraries/extensions/battle/battle.png';
 import battleInsetImage from './libraries/extensions/battle/battle-small.svg';
@@ -176,6 +182,27 @@ const builtinExtensions = [
         description: 'gui.extension.gdxfor.description',
         requirement: ['internet', 'bluetooth'],
         tags: ['scratch']
+    },
+    // ClipCC
+    {
+        extensionId: 'httpio',
+        iconURL: HTTPIOImage,
+        insetIconURL: HTTPIOInsetImage,
+        author: ['Clipteam'],
+        name: 'HTTPIO',
+        description: 'Feel the charm of Internet!',
+        incompatibleWithScratch: true,
+        tags: ['clipcc']
+    },
+    {
+        extensionId: 'ccjson',
+        iconURL: JSONImage,
+        insetIconURL: JSONInsetImage,
+        author: ['Clipteam'],
+        name: 'JSON',
+        description: 'Useful JSON Extension.',
+        incompatibleWithScratch: true,
+        tags: ['clipcc']
     },
     {
         extensionId: 'canvas',
