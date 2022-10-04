@@ -74,7 +74,14 @@ import jsInsetIconURL from './libraries/extensions/js/js-small.svg';
 import canvasIconURL from './libraries/extensions/canvas/canvas.png';
 import canvasInsetIconURL from './libraries/extensions/canvas/canvas-small.svg';
 
+// CCW
+import CCWSugarIcon from './libraries/extensions/CCWSugar/CCWSugar.png';
+import lazyMusicIcon from './libraries/extensions/lazyMusic/lazyMusic.png';
+import Box2DIcon from './libraries/extensions/box2d/box2d.png';
+import arkosExtensionsIcon from './libraries/extensions/arkosExtensions/arkosExtensions.png';
+
 import twIcon from './libraries/extensions/tw/tw.svg';
+import customExtensionIcon from './libraries/extensions/custom/custom.svg';
 
 const builtinExtensions = [
     {
@@ -204,6 +211,260 @@ const builtinExtensions = [
         incompatibleWithScratch: true,
         tags: ['clipcc']
     },
+    // CCW
+    {
+        extensionId: 'GandiFermi',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Fermi',
+        description: 'Unchain the limitation of Scratch.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'box2d',
+        iconURL: Box2DIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Griffpatch @ Shawn'],
+        name: 'Physics v1.1',
+        description: 'Box2D Physics Extension.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'redBoard',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Xigua Maker'],
+        name: 'Xigua Red Board',
+        description: '"Control" the world.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'faceSensing',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['ScratchLab'],
+        name: 'Face Sensing',
+        description: 'Sense faces with the camera.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'text',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['ScratchLab'],
+        name: 'Animated Text',
+        description: 'Bring words to life.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'lazyMusic',
+        iconURL: lazyMusicIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['CCW'],
+        name: 'Lazy Music',
+        description: 'Make project loads faster.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'CCWSugar',
+        iconURL: CCWSugarIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['CCW'],
+        name: 'Syntactic Sugar',
+        description: 'Less blocks, more creations.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'CCWCanvasV2',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['CCW'],
+        name: 'CanvasV2',
+        description: '"Control Canvas(Beta Test)',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiAStarExtension',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['-6, ob, Cappu & Shawn @ Gandi'],
+        name: 'A Star Odyssey v1.2',
+        description: 'A path-finding extension to help heroes find the way home',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiDolly',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Gandi Dolly v1.0.2',
+        description: 'Beep Beep I\'m a sheep. All about clones.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiMedia',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Gandi Media Util v1.0',
+        description: 'Lazy load videos and audios, media playback with audio effects.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'CCWData',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Nick & Shawn @ CCW'],
+        name: 'Gandi Data Util v1.1',
+        description: '☁️ Cloud data access is easy, with JSON utilities doubly so!',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiPureMath',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Gandi Pure Math v1.0',
+        description: '"evaluates math expressions',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'CCWMMO',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Gandi Simple MMO v1.0.3',
+        description: 'With Gandi Simple MMO, you can design multi-player online game.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'VIDateTime',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['six-6 x CCW'],
+        name: 'Date and Time Calculator v1.0',
+        description: '"All about date time calculation',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'RegExpVI',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['six6 x CCW'],
+        name: 'Regular expression VI',
+        description: 'Create RegExp and find texts.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'arkosExtensions',
+        iconURL: arkosExtensionsIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Arkos x CCW'],
+        name: 'Arkos\' Extensions v1.2',
+        description: 'Arkos presents, powerful(buggy) extensions with compliments.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'ArkosArchiveCode',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Arkos x CCW'],
+        name: 'Arkos Achieve Code v 1.0',
+        description: 'Makes Save & Load system easier, and brings more useful features.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiQuake',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ Gandi'],
+        name: 'Gandi Quake v1.0',
+        description: 'Quake, make a stunning fullscreen effects.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiAchievementAndLeaderboard',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Gandi'],
+        name: 'Achievement & Lraderboard',
+        description: 'Achievement & Lraderboard',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    {
+        extensionId: 'GandiTerminal',
+        iconURL: customExtensionIcon,
+        /*
+        insetIconURL: ,
+        */
+        author: ['Shawn @ CCW'],
+        name: 'Terminal v0.3.2',
+        description: 'Terminal make debugging more easier.',
+        incompatibleWithScratch: true,
+        tags: ['ccw']
+    },
+    // Gitblock
     {
         extensionId: 'canvas',
         iconURL: canvasIconURL,
