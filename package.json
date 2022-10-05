@@ -79,6 +79,7 @@
     "react-virtualized": "9.20.1",
     "redux": "3.7.2",
     "redux-throttle": "0.1.1",
+    "regenerator-runtime": "^0.13.9",
     "scratch-audio": "git+https://github.com/TurboWarp/scratch-audio.git#develop",
     "scratch-blocks": "git+https://github.com/SimonShiki/umi-blocks.git#master",
     "scratch-paint": "git+https://github.com/TurboWarp/scratch-paint.git#develop",
