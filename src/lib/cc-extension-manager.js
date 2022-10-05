@@ -79,6 +79,12 @@ import CCWSugarIcon from './libraries/extensions/CCWSugar/CCWSugar.png';
 import lazyMusicIcon from './libraries/extensions/lazyMusic/lazyMusic.png';
 import Box2DIcon from './libraries/extensions/box2d/box2d.png';
 import arkosExtensionsIcon from './libraries/extensions/arkosExtensions/arkosExtensions.png';
+import ArkosArchiveCodeIcon from './libraries/extensions/ArkosArchiveCode/ArkosArchiveCode.png';
+import GandiQuakeIcon from './libraries/extensions/GandiQuake/GandiQuake.jpg';
+import CCWCanvasV2Icon from './libraries/extensions/CCWCanvasV2/CCWCanvasV2.png';
+import GandiAchievementAndLeaderboardIcon from './libraries/extensions/GandiAchievementAndLeaderboard/GandiAchievementAndLeaderboard.jpg';
+import RegExpVIIcon from './libraries/extensions/RegExpVI/RegExpVI.jpg';
+import textIcon from './libraries/extensions/text/text.png';
 
 // Xiaomawang
 import XiaomaIcon  from './libraries/extensions/xiaoma/xiaoma.png';
@@ -266,7 +272,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'text',
-        iconURL: customExtensionIcon,
+        iconURL: textIcon,
         /*
         insetIconURL: ,
         */
@@ -302,7 +308,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'CCWCanvasV2',
-        iconURL: customExtensionIcon,
+        iconURL: CCWCanvasV2Icon,
         /*
         insetIconURL: ,
         */
@@ -398,7 +404,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'RegExpVI',
-        iconURL: customExtensionIcon,
+        iconURL: RegExpVIIcon,
         /*
         insetIconURL: ,
         */
@@ -422,7 +428,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'ArkosArchiveCode',
-        iconURL: customExtensionIcon,
+        iconURL: ArkosArchiveCodeIcon,
         /*
         insetIconURL: ,
         */
@@ -434,7 +440,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'GandiQuake',
-        iconURL: customExtensionIcon,
+        iconURL: GandiQuakeIcon,
         /*
         insetIconURL: ,
         */
@@ -446,7 +452,7 @@ const builtinExtensions = [
     },
     {
         extensionId: 'GandiAchievementAndLeaderboard',
-        iconURL: customExtensionIcon,
+        iconURL: GandiAchievementAndLeaderboardIcon,
         /*
         insetIconURL: ,
         */

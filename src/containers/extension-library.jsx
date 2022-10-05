@@ -153,7 +153,6 @@ class ExtensionLibrary extends React.PureComponent {
                 const { version = '1.0.0' } = this.props.extension[ext];
                 extensionList.push(`${ext}@${version}`);
             };
-            log.info(extensionList);
             this.extensionChannel.postMessage({
                 action: 'tell',
                 data: extensionList
