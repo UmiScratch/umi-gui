@@ -113,6 +113,7 @@ class Blocks extends React.Component {
         // lists, and procedures from extensions.
 
         const toolboxWorkspace = this.workspace.getFlyout().getWorkspace();
+        window.toolboxWorkspace = toolboxWorkspace;
 
         const varListButtonCallback = type =>
             (() => this.ScratchBlocks.Variables.createVariable(this.workspace, null, type));
