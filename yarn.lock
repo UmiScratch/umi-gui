@@ -1144,11 +1144,6 @@
   resolved "https://registry.yarnpkg.com/@testim/chrome-version/-/chrome-version-1.1.3.tgz#fbb68696899d7b8c1b9b891eded9c04fe2cd5529"
   integrity sha512-g697J3WxV/Zytemz8aTuKjTGYtta9+02kva3C1xc7KXB8GdbfE1akGJIsZLyY/FSh2QrnE+fiB7vmWU3XNcb6A==
 
-"@turbowarp/json@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@turbowarp/json/-/json-0.1.1.tgz#8320b8cb44f9129ea659c8f4254280a95a2361b2"
-  integrity sha512-6APLbD+TGNdVKUu2UlWM1cgHbwrStWIwpvDVdiqS/SJ/i0OfjtqeAhnK5EjqNazXGWI+p68ZNxMJe2+UtZZSzA==
-
 "@turbowarp/scratch-l10n@^3.999.20220926212656":
   version "3.999.20220926212656"
   resolved "https://registry.yarnpkg.com/@turbowarp/scratch-l10n/-/scratch-l10n-3.999.20220926212656.tgz#389eef8cf7066da6f972da85126f453a1b71cc2e"
@@ -5472,6 +5467,11 @@ immediate@~3.0.5:
   resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
 
+immutable@3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
+  integrity sha512-0R2q5f83L0h+zizu3lAA3ZR/mzEl04U1jVVXIqf2rQbZs9eX5YGtx1EFQuuJJHzVXH10ur6hGKehR8yBOQmZlQ==
+
 immutable@3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
@@ -9278,11 +9278,11 @@ scratch-l10n@3.15.20220923031622:
     parse-color "1.0.0"
     prop-types "^15.5.10"
 
-"scratch-parser@git+https://github.com/TurboWarp/scratch-parser.git#72f2cde00fc968ce40282e0392d3553963730748":
-  version "0.0.0-development"
-  resolved "git+https://github.com/TurboWarp/scratch-parser.git#72f2cde00fc968ce40282e0392d3553963730748"
+scratch-parser@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/scratch-parser/-/scratch-parser-5.0.0.tgz#480c357047d45b7119b74be441ba4a3c28cd8216"
+  integrity sha512-7kjxoxivLgYYvmAJVLOOWnca4CigwuCpgjy9+6UuxOMgSZKO1xqIjxIADupabmh1ZLZZDVe45DBM/CQTdtVDkw==
   dependencies:
-    "@turbowarp/json" "^0.1.1"
     ajv "6.3.0"
     jszip "3.1.5"
     pify "4.0.1"
@@ -9354,11 +9354,11 @@ scratch-translate-extension-languages@0.0.20191118205314:
   resolved "https://registry.yarnpkg.com/scratch-translate-extension-languages/-/scratch-translate-extension-languages-0.0.20191118205314.tgz#9f781cc0c89785faba8ae86775a4915225676284"
   integrity sha512-r0lvpgQjPMjbhI2wROrgoXzBhCvWJdkbAqJMfl2CdNqrwBpUXqLvNNtI3VtNLPJAcp9VfxEylkU9lVZ0gvU46Q==
 
-"scratch-vm@git+https://github.com/SimonShiki/umi-vm.git#master":
-  version "0.2.0"
-  resolved "git+https://github.com/SimonShiki/umi-vm.git#7bce87622c322e9e96d00ad0e82096ffab4a1027"
+scratch-vm@^1.2.38:
+  version "1.2.38"
+  resolved "https://registry.yarnpkg.com/scratch-vm/-/scratch-vm-1.2.38.tgz#b20dcaa96309716946482fdd63781b6395cd48cf"
+  integrity sha512-2wmQFdNojJN7NidncwuOH1bFxVx+Mru3nFKhhqbQQEfKNmBwiMqzIilZqv1V8AYaGmxS6qS8emWp09YEDPtLeg==
   dependencies:
-    "@turbowarp/json" "^0.1.1"
     "@vernier/godirect" "1.5.0"
     arraybuffer-loader "^1.0.6"
     atob "2.1.2"
@@ -9368,10 +9368,10 @@ scratch-translate-extension-languages@0.0.20191118205314:
     diff-match-patch "1.0.4"
     format-message "6.2.1"
     htmlparser2 "3.10.0"
-    immutable "3.8.2"
+    immutable "3.8.1"
     jszip "^3.1.5"
     minilog "3.1.0"
-    scratch-parser "git+https://github.com/TurboWarp/scratch-parser.git#72f2cde00fc968ce40282e0392d3553963730748"
+    scratch-parser "5.0.0"
     scratch-sb1-converter "0.2.7"
     scratch-translate-extension-languages "0.0.20191118205314"
     text-encoding "0.7.0"
