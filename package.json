@@ -27,7 +27,7 @@
     "url": "git+ssh://git@github.com/LLK/scratch-gui.git"
   },
   "dependencies": {
-    "@turbowarp/scratch-l10n": "^3.999.20220926212656",
+    "@turbowarp/scratch-l10n": "^3.999.20221122194301",
     "arraybuffer-loader": "^1.0.6",
     "autoprefixer": "^9.0.1",
     "base64-loader": "1.0.0",
