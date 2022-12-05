@@ -9356,12 +9356,14 @@ scratch-translate-extension-languages@0.0.20191118205314:
 
 "scratch-vm@git+https://github.com/SimonShiki/umi-vm.git#master":
   version "0.2.0"
-  resolved "git+https://github.com/SimonShiki/umi-vm.git#7bce87622c322e9e96d00ad0e82096ffab4a1027"
+  uid f4a67da5d39f9ae6b1cabcbe175be8ac1c5099fd
+  resolved "git+https://github.com/SimonShiki/umi-vm.git#f4a67da5d39f9ae6b1cabcbe175be8ac1c5099fd"
   dependencies:
     "@turbowarp/json" "^0.1.1"
     "@vernier/godirect" "1.5.0"
     arraybuffer-loader "^1.0.6"
     atob "2.1.2"
+    axios "^0.27.2"
     btoa "1.2.1"
     canvas-toBlob "1.0.0"
     decode-html "2.0.0"
