@@ -1149,10 +1149,10 @@
   resolved "https://registry.yarnpkg.com/@turbowarp/json/-/json-0.1.1.tgz#8320b8cb44f9129ea659c8f4254280a95a2361b2"
   integrity sha512-6APLbD+TGNdVKUu2UlWM1cgHbwrStWIwpvDVdiqS/SJ/i0OfjtqeAhnK5EjqNazXGWI+p68ZNxMJe2+UtZZSzA==
 
-"@turbowarp/scratch-l10n@^3.999.20220926212656":
-  version "3.999.20220926212656"
-  resolved "https://registry.yarnpkg.com/@turbowarp/scratch-l10n/-/scratch-l10n-3.999.20220926212656.tgz#389eef8cf7066da6f972da85126f453a1b71cc2e"
-  integrity sha512-BErR0Gg1HFW+7c+yOwfAOg7MO8UgP/wKvqoVzgMt/8DKUB05bYWgSbWmIA2VtxWAaRDatW4nt4x2qGaWsTg2Dg==
+"@turbowarp/scratch-l10n@^3.999.20221220224553":
+  version "3.999.20221220224553"
+  resolved "https://registry.yarnpkg.com/@turbowarp/scratch-l10n/-/scratch-l10n-3.999.20221220224553.tgz#8933e4d43c54d619ab01cb3e06238dcb5e850e52"
+  integrity sha512-51k24yypKuslHmIikF+XJAC/FokoZ1lJUQy7fGbDjc5OBIgB/dJKIzp2d77X6G9Qq0m5d7C6mcni7dnkIHWF2w==
   dependencies:
     babel-plugin-react-intl "^3.0.1"
 
